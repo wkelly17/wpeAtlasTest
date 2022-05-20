@@ -9,8 +9,9 @@ import {
   SEO,
 } from 'components';
 import { pageTitle } from 'utils';
+import PageTransitions from '../animations/pageTransitions';
 
-export function PageComponent({ page }) {
+export function PageComponent({ page, route, routingPageOffset }) {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
 
@@ -26,13 +27,22 @@ export function PageComponent({ page }) {
       />
 
       <Header />
-
-      <Main>
-        <EntryHeader title={page?.title()} image={page?.featuredImage?.node} />
-        <div className="container">
-          <ContentWrapper content={page?.content()} />
-        </div>
-      </Main>
+      <PageTransitions
+        route={route}
+        routingPageOffset={routingPageOffset}
+        key={route}
+        in={route}
+      >
+        <Main>
+          <EntryHeader
+            title={page?.title()}
+            image={page?.featuredImage?.node}
+          />
+          <div className="container">
+            <ContentWrapper content={page?.content()} />
+          </div>
+        </Main>
+      </PageTransitions>
 
       <Footer />
     </>
@@ -42,7 +52,6 @@ export function PageComponent({ page }) {
 export default function Page() {
   const { usePage } = client;
   const page = usePage();
-
   return <PageComponent page={page} />;
 }
 

@@ -4,9 +4,9 @@ const WP_HOST = new URL(process.env.NEXT_PUBLIC_WORDPRESS_URL).hostname;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  sassOptions: {
-    includePaths: ['node_modules'],
-  },
+  // sassOptions: {
+  //   includePaths: [path.join(__dirname, 'styles')],
+  // },
   eslint: {
     dirs: ['src'],
   },

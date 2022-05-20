@@ -1,3 +1,4 @@
+import Box from './Box';
 import Button from './Button';
 import ContentWrapper from './ContentWrapper';
 import CTA from './CTA';
@@ -22,6 +23,7 @@ import TaxonomyTerms from './TaxonomyTerms';
 
 export {
   Button,
+  Box,
   ContentWrapper,
   CTA,
   EntryHeader,

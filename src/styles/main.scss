@@ -1,6 +1,9 @@
 // Theme Modules
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 @use 'sass:math';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import 'Variables';
 @import 'Base';
